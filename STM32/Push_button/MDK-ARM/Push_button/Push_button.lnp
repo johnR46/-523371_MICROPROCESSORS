@@ -1,0 +1,25 @@
+--cpu Cortex-M7.fp.sp
+"push_button\startup_stm32f746xx.o"
+"push_button\main.o"
+"push_button\stm32f7xx_it.o"
+"push_button\stm32f7xx_hal_msp.o"
+"push_button\stm32f7xx_hal_cortex.o"
+"push_button\stm32f7xx_hal_tim.o"
+"push_button\stm32f7xx_hal_tim_ex.o"
+"push_button\stm32f7xx_hal_rcc.o"
+"push_button\stm32f7xx_hal_rcc_ex.o"
+"push_button\stm32f7xx_hal_flash.o"
+"push_button\stm32f7xx_hal_flash_ex.o"
+"push_button\stm32f7xx_hal_gpio.o"
+"push_button\stm32f7xx_hal_dma.o"
+"push_button\stm32f7xx_hal_dma_ex.o"
+"push_button\stm32f7xx_hal_pwr.o"
+"push_button\stm32f7xx_hal_pwr_ex.o"
+"push_button\stm32f7xx_hal.o"
+"push_button\stm32f7xx_hal_i2c.o"
+"push_button\stm32f7xx_hal_i2c_ex.o"
+"push_button\system_stm32f7xx.o"
+--library_type=microlib --strict --scatter "Push_button\Push_button.sct"
+--summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list "Push_button.map" -o Push_button\Push_button.axf
