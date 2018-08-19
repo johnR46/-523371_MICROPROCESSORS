@@ -111,20 +111,35 @@ if(HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_13) == GPIO_PIN_RESET){
 
       case 1 :
         HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0, GPIO_PIN_SET);
-				HAL_Delay(500);
+			
         break;
       case 2 :
 
-        HAL_GPIO_WritePin(GPIOB, GPIO_PIN_7, GPIO_PIN_SET);
-				HAL_Delay(500);
+        HAL_GPIO_WritePin(GPIOB, GPIO_PIN_14, GPIO_PIN_SET);
+		 HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0, GPIO_PIN_RESET);
+		
         break;
 
 
-      case 3:
-        HAL_GPIO_WritePin(GPIOB, GPIO_PIN_14, GPIO_PIN_SET);
-				HAL_Delay(500);
+		
+		case 3: 
+			
+	   HAL_GPIO_WritePin(GPIOB, GPIO_PIN_7, GPIO_PIN_SET);
+		 HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0, GPIO_PIN_RESET);
+		
+		 HAL_GPIO_WritePin(GPIOB, GPIO_PIN_14, GPIO_PIN_RESET);
         break;
 			
+      case 4:
+        HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_14);
+		HAL_Delay(200);
+		 HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_0);
+		HAL_Delay(200);
+        HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_7);
+		HAL_Delay(200);
+		
+		break;
+		
 			default : 
 				 HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0, GPIO_PIN_RESET);
 			
@@ -168,7 +183,7 @@ void Count() {
     count++;
   }
 	
-	if(count >3){
+	if(count >4){
 		count = 0;
 		
 	}
