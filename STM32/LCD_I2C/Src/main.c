@@ -78,7 +78,7 @@ static void MX_I2C1_Init(void);
         char data_u, data_l;    
 	uint8_t data_t[4];
 	data_u = cmd&0xf0;    // select only upper nibble
-	data_l = (cmd<<4)&0xf0;    // select only lower nibble
+	data_l = (cmd<<4)|0xf0;    // select only lower nibble
 	data_t[0] = data_u|0x04;  //en=1, rs=0
 	data_t[1] = data_u;  //en=0, rs=0
 	data_t[2] = data_l|0x04;  //en=1, rs=0
@@ -94,7 +94,7 @@ void lcd_send_data (char data)
 	char data_u, data_l;
 	uint8_t data_t[4];
 	data_u = data&0xf0;    // upper data nibble
-	data_l = (data<<4)&0xf0;    // lower data nibble
+	data_l = (data<<4)|0xf0;    // lower data nibble
 	data_t[0] = data_u|0x05;  //en=1, rs=0
 	data_t[1] = data_u|0x01;  //en=0, rs=0
 	data_t[2] = data_l|0x05;  //en=1, rs=0
