@@ -39,19 +39,19 @@ int i = 0;
 char Rxapp;
 
 void control() {
-  if (Rxapp == 'T') {
+  if (Rxapp == 'S') {
     stopm();
   }
-  else if (Rxapp == 'S') {
+  else if (Rxapp == 'B') {
     forward();
   }
-  else if (Rxapp == 'W') {
+  else if (Rxapp == 'F') {
     reward();
   }
-  else if (Rxapp == 'A') {
+  else if (Rxapp == 'L') {
     left();
   }
-  else if (Rxapp == 'B') {
+  else if (Rxapp == 'R') {
     right();
   }
 }
