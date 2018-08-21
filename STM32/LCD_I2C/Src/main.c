@@ -72,13 +72,12 @@ static void MX_I2C1_Init(void);
   *
   * @retval None
   */
-  
-  void lcd_send_cmd (char cmd)
+ void lcd_send_cmd (char cmd)
    {
         char data_u, data_l;    
 	uint8_t data_t[4];
 	data_u = cmd&0xf0;    // select only upper nibble
-	data_l = (cmd<<4)|0xf0;    // select only lower nibble
+	data_l = (cmd<<4)&0xf0;    // select only lower nibble
 	data_t[0] = data_u|0x04;  //en=1, rs=0
 	data_t[1] = data_u;  //en=0, rs=0
 	data_t[2] = data_l|0x04;  //en=1, rs=0
@@ -94,7 +93,7 @@ void lcd_send_data (char data)
 	char data_u, data_l;
 	uint8_t data_t[4];
 	data_u = data&0xf0;    // upper data nibble
-	data_l = (data<<4)|0xf0;    // lower data nibble
+	data_l = (data<<4)&0xf0;    // lower data nibble
 	data_t[0] = data_u|0x05;  //en=1, rs=0
 	data_t[1] = data_u|0x01;  //en=0, rs=0
 	data_t[2] = data_l|0x05;  //en=1, rs=0
@@ -121,9 +120,7 @@ lcd_send_cmd(0x80);
 void lce_send_string(char *str)
 {
 while(*str)lcd_send_data(*str++);
-
 }
-
 
 
 char num[] = {'1','2','3','4','5','6','7','8','9'};
@@ -157,18 +154,19 @@ int main(void)
   lcd_send_cmd(0x01);
   lcd_send_cmd(0x80);// bring cursor to 1st row 1st col
  
-
+lce_send_string("HELLO WORLD!");
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-	 for(int i = 0; i <9;i++){
+	/* for(int i = 0; i <9;i++){
 	 lcd_send_data(num[i]);
 		 HAL_Delay(1000);
 		 lcd_send_cmd(0x80);
-	 }		 
+	 }	
+		*/	 
 
   /* USER CODE END WHILE */
 

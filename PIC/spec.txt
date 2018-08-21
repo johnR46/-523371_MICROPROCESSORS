@@ -1,0 +1,25 @@
+PIC18F4550 Sock DIP
+แบบถอดออกจากซอกเก็ตได้ 
+
+4 หลอด LED
+- 1หลอด status pwr
+- 3 หลอด led เเดง ขาว ฟ้า
+
+button 2 ปุ่ม 
+- ปุ่ม reset
+- ปุ่ม user button (ต่อ input_pullup กับ gpio)
+
+
+GPIO ทุกขาบอกเลขพอร์ทด้วย
+
+ตัวอัปโหลด - ใช้กับ pickit 3.5 ได้
+
+commutation 
+- ช่อง(Serial ) RX TX  ระบุให้ชัด
+SPI ระบุขาด้วย - mosi mioso sck ss
+-I2C  SDA SCL บอกขาด้วย
+
+Power Vin Gnd  + 7 - 12V
+      +5V
+      +3.3V
+     USB type C 1 ช่อง
