@@ -108,7 +108,7 @@ void setup() {
   pinMode(motor_dir_right, OUTPUT);
   pinMode(motor_pwm_right, OUTPUT);
   
-  Serial.begin(38400);
+  Serial.begin(57600);
   Serial.println("BEGIN");
 }
 
