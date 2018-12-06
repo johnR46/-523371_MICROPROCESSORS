@@ -1,0 +1,15 @@
+		ORG	0000H
+		MOV	B,#1000B
+		MOV	A,B
+		MOV	B,#10H
+		DIV	AB
+		MOV	R0,B
+		MOV	B,#10H
+		MUL	AB
+		ADD	A,R0
+		MOV	R0,A
+		JMP 	$
+		
+		
+		
+		END

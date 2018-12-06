@@ -1,0 +1,15 @@
+#include <REG51.h>
+#include <math.h>
+sbit led = P1^7;
+sbit sw = P2^7
+void delay(unsigned int y){
+ unsigned int i;
+ for(i=0;i<y;i++){;}
+}
+void main(){
+ sw = 1 //Set up P 2.7as input pin
+ while(1) {
+ if(sw == 0) { led = 0; //Turn ON the LED}
+ else { led = 1; //Turn OFF the LED }
+ }
+}
